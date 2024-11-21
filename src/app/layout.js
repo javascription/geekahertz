@@ -1,5 +1,9 @@
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import "@uploadthing/react/styles.css";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+import { ourFileRouter } from "../app/api/uploadthing/core";
 
 const poppins = Poppins({
   weight: "400",
@@ -15,7 +19,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={poppins.className}>
-      <body>{children}</body>
+      <body>
+        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+        {children}
+      </body>
     </html>
   );
 }

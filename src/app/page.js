@@ -1,31 +1,67 @@
-"use server";
-import { utapi } from "../app/server/uploadthing";
+"use client";
+
+import { UploadDropzone } from "./server/uploadthing";
 import Files from "./components/files";
 
-async function uploadFiles(formData) {
-  "use server";
-
-  const files = formData.getAll("files");
-  const response = await utapi.uploadFiles(files);
-}
-
-async function getFiles() {
-  const res = await utapi.listFiles();
-  return res;
-}
-
-export default async function Home() {
-  const data = await getFiles();
-  const data1 = JSON.parse(JSON.stringify(data));
+export default function Home() {
   return (
     <>
-      <form action={uploadFiles}>
-        <input name="files" type="file" multiple />
-        <button type="submit">Upload</button>
-      </form>
-      <div>
-        <Files data={data1} />
-      </div>
+      <UploadDropzone
+        endpoint="imageUploader"
+        onClientUploadComplete={(res) => {
+          console.log("Files: ", res);
+          alert("Upload Completed");
+          window.location.reload();
+        }}
+        onUploadError={(error) => {
+          alert(`ERROR! ${error.message}`);
+        }}
+      />
+      <UploadDropzone
+        endpoint="videoUploader"
+        onClientUploadComplete={(res) => {
+          console.log("Files: ", res);
+          alert("Upload Completed");
+          window.location.reload();
+        }}
+        onUploadError={(error) => {
+          alert(`ERROR! ${error.message}`);
+        }}
+      />
+      <UploadDropzone
+        endpoint="audioUploader"
+        onClientUploadComplete={(res) => {
+          console.log("Files: ", res);
+          alert("Upload Completed");
+          window.location.reload();
+        }}
+        onUploadError={(error) => {
+          alert(`ERROR! ${error.message}`);
+        }}
+      />
+      <UploadDropzone
+        endpoint="pdfUploader"
+        onClientUploadComplete={(res) => {
+          console.log("Files: ", res);
+          alert("Upload Completed");
+          window.location.reload();
+        }}
+        onUploadError={(error) => {
+          alert(`ERROR! ${error.message}`);
+        }}
+      />
+      <UploadDropzone
+        endpoint="textUploader"
+        onClientUploadComplete={(res) => {
+          console.log("Files: ", res);
+          alert("Upload Completed");
+          window.location.reload();
+        }}
+        onUploadError={(error) => {
+          alert(`ERROR! ${error.message}`);
+        }}
+      />
+      <Files />
     </>
   );
 }
