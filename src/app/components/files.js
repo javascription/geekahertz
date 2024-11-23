@@ -2,6 +2,8 @@
 import Link from "next/link";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Files = () => {
   const [files, setFiles] = useState([]);
@@ -47,7 +49,7 @@ const Files = () => {
             <Link href={`https://utfs.io/a/xprl9riwuu/${file.key}`}>
               {file.name}
             </Link>
-            <button onClick={() => DeleteFiles(file.key)}>Delete files</button>
+            <button onClick={() => DeleteFiles(file.key)}><FontAwesomeIcon icon={faTrash} /></button>
           </li>
         ))}
       </ul>

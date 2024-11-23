@@ -22,7 +22,7 @@ export default function Contact() {
                             <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold ">Contact Us</h2>
                                 {/*  <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p> */}                   
-                                <form className="space-y-8" onSubmit={(e) => {e.preventDefault(); alert(`Our team will reach out to you soon!\n\n~TeddyBuddy@NuxeCorps`)}}>
+                                <form className="space-y-8" onSubmit={(e) => {e.preventDefault(); alert(`Our team will reach out to you soon!\n\n~Team@GoDoc`)}}>
                                     <div>
                                         <label htmlFor="email" className="block mb-2 text-sm font-medium">Your email</label>
                                         <input
