@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons/faXmark";
 import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 import { useSession, signOut } from "next-auth/react";
+import Link from "next/link";
 
 export default function Navigation({ color = "#fff" }) {
     const navbarRef = useRef(null);
@@ -56,59 +57,40 @@ export default function Navigation({ color = "#fff" }) {
             );
         }
         return (
-            <a href="/login" className="relative mr-[3.6rem]" style={{ color }}>
+            <Link href="/login" className="relative mr-[3.6rem]" style={{ color }}>
                 Login
-            </a>
+            </Link>
         );
     };
 
     return (
         <>
             <section>
-                <header
-                    className={`relative pt-[2rem] pr-0 pb-[2rem] pl-0 text-[${color}]`}
-                >
+                <header className={`relative pt-[2rem] pr-0 pb-[2rem] pl-0 text-[${color}]`}>
                     <div
-                        className="fixed flex flex-wrap justify-between w-[100%]
-                                items-center z-[100]"
+                        className="fixed flex flex-wrap justify-between w-[100%] items-center z-[100]"
                         ref={navbarRef}
                     >
                         <div className="text-2xl ml-[3rem]">
-                            <a
-                                href="/"
-                                className={`mo:text-[2.5rem]`}
-                                style={{ color }}
-                            >
+                            <Link href="/" className="mo:text-[2.5rem]" style={{ color }}>
                                 GoDoc
-                            </a>
+                            </Link>
                         </div>
                         <ul className="relative flex gap-12 mo:hidden items-center">
                             <li>
-                                <a
-                                    href="/about"
-                                    className="relative"
-                                    style={{ color }}
-                                >
+                                <Link href="/about" className="relative" style={{ color }}>
                                     About
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="/dashboard"
-                                    className="relative"
-                                    style={{ color }}
-                                >
+                                <Link href="/dashboard" className="relative" style={{ color }}>
                                     Dashboard
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="/contact"
-                                    className="relative"
-                                    style={{ color }}
-                                >
+                                <Link href="/contact" className="relative" style={{ color }}>
                                     Contact
-                                </a>
+                                </Link>
                             </li>
                             <li>{authLink()}</li>
                         </ul>
@@ -132,37 +114,23 @@ export default function Navigation({ color = "#fff" }) {
                 </header>
                 <div
                     ref={wrapperRef}
-                    className="hidden flex-col top-[0%] fixed w-[100%] h-screen
-                        p-13-percent backdrop-blur-[15px]
-                        text-center items-center z-[1]"
+                    className="hidden flex-col top-[0%] fixed w-[100%] h-screen p-13-percent backdrop-blur-[15px] text-center items-center z-[1]"
                 >
                     <ul className="gap-8 flex flex-col">
                         <li>
-                            <a
-                                className="text-[2.3rem]"
-                                href="/about"
-                                style={{ color }}
-                            >
+                            <Link href="/about" className="text-[2.3rem]" style={{ color }}>
                                 About
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a
-                                className="text-[2.3rem]"
-                                href="/dashboard"
-                                style={{ color }}
-                            >
+                            <Link href="/dashboard" className="text-[2.3rem]" style={{ color }}>
                                 Dashboard
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a
-                                className="text-[2.3rem]"
-                                href="/contact"
-                                style={{ color }}
-                            >
+                            <Link href="/contact" className="text-[2.3rem]" style={{ color }}>
                                 Contact
-                            </a>
+                            </Link>
                         </li>
                         <li className="text-[2.3rem]">{authLink()}</li>
                     </ul>
