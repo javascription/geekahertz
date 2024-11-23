@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Files = () => {
@@ -32,6 +32,15 @@ const Files = () => {
     fetchFiles();
   }, []);
 
+  const DeleteFiles = async (key) => {
+    await axios.delete("api/uploadthing/deletefiles", {
+      data: {
+        url: key,
+      },
+    });
+    window.location.reload();
+  };
+
   return (
     <div>
       {loading && <p>Loading files...</p>}
@@ -42,6 +51,7 @@ const Files = () => {
             <Link href={`https://utfs.io/a/xprl9riwuu/${file.key}`}>
               {file.name}
             </Link>
+            <button onClick={() => DeleteFiles(file.key)}>Delete files</button>
           </li>
         ))}
       </ul>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Navbar from "./components/Navbar"
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   const [floatingDivs, setFloatingDivs] = useState([]);
@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar color="#fff"/>
+      <Navbar color="#fff" />
       <div className="absolute top-0 left-0 w-full h-screen bg-gradient-to-br from-blue-600 to-purple-700 overflow-hidden font-sans z-0">
         {/* Enhanced Background */}
         <div className="absolute inset-0">
@@ -72,7 +72,7 @@ export default function Home() {
             Your documents, one click away!
           </p>
           <Link
-            href="/signup"
+            href="/register"
             className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-blue-100 transition-colors duration-300 animate-slide-up-fade"
           >
             Get Started

@@ -35,7 +35,6 @@ body {
   min-height: 100vh;
 }
 
-
 .p-13-percent {
   padding: 25% 0;
 }
@@ -46,7 +45,7 @@ body {
 
 .f-links a {
   padding-inline: 5px;
-} 
+}
 
 @media (max-width: 650px) {
   .footer {
