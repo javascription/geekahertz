@@ -56,3 +56,17 @@ body {
     padding-inline: 10px;
   }
 }
+
+select {
+  background-color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.Drop {
+  border: 2px solid white;
+  border-radius: 10px;
+  font-size: 20px;
+}
