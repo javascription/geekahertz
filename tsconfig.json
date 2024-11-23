@@ -25,6 +25,6 @@
     "**/*.ts",
     "**/*.tsx",
     "src/app/components/files.js"
-  ],
+, "src/app/provider.js"  ],
   "exclude": ["node_modules"]
 }

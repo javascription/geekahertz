@@ -1,9 +1,14 @@
 import "./globals.css";
-import { Poppins } from "next/font/google";
+import "../static/fontawesum.css"
+
+
 import "@uploadthing/react/styles.css";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "../app/api/uploadthing/core";
+import { Poppins } from "next/font/google";
+import { Provider } from './provider'
+import Footer from './components/Footer';
 
 const poppins = Poppins({
   weight: "400",
@@ -18,10 +23,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="en" className={poppins.className} suppressHydrationWarning>
       <body>
-        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-        {children}
+        <Provider>
+          <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+          {children}
+          <Footer />
+        </Provider>
       </body>
     </html>
   );
