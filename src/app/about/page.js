@@ -10,7 +10,7 @@ const About1 = () => {
           <div className="flex flex-wrap items-center justify-between -mx-4">
             <div className="w-full px-4">
               <div className="mt-10 lg:mt-0">
-                <h2 className="mb-5 text-3xl font-bold sm:text-[40px]/[48px] text-secondary">
+                <h2 className="mb-10 text-3xl font-bold sm:text-[40px]/[48px] text-primary flex justify-center">
                   About Us
                 </h2>
                 <p className="mb-5 text-base text-text p">
@@ -44,7 +44,7 @@ const About1 = () => {
           <div className="flex flex-wrap items-center justify-between -mx-4">
             <div className="w-full px-4">
               <div className="mt-10 lg:mt-0">
-                <h2 className="mb-5 text-3xl font-bold sm:text-[40px]/[48px] text-secondary">
+                <h2 className="mb-5 text-3xl font-bold sm:text-[40px]/[48px] text-primary">
                   Why Choose Us?
                 </h2>
                 <p className="mb-5 text-base text-text p">

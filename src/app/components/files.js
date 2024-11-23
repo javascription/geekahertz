@@ -6,11 +6,9 @@ import { useEffect, useState } from "react";
 const Files = () => {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   const fetchFiles = async () => {
     setLoading(true);
-    setError(null);
 
     try {
       const response = await fetch("/api/uploadthing/listfiles");
@@ -22,7 +20,6 @@ const Files = () => {
 
       setFiles(data.files);
     } catch (err) {
-      setError(err.message);
     } finally {
       setLoading(false);
     }
@@ -44,7 +41,6 @@ const Files = () => {
   return (
     <div>
       {loading && <p>Loading files...</p>}
-      {error && <p>Error: {error}</p>}
       <ul>
         {files.map((file) => (
           <li key={file.id}>
