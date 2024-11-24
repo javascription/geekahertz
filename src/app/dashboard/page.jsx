@@ -23,7 +23,7 @@ export default function Upload() {
             <Navbar />
             {session ? (
                 <div className="absolute inset-0 flex flex-col items-center justify-center space-y-6">
-                    <div className="flex justify-center items-start space-x-16"> {/* Increased space-x-8 to space-x-16 */}
+                    <div className="flex justify-center items-start space-x-8">
                         {/* Upload Section */}
                         <div className="flex flex-col items-center space-y-4 w-1/2">
                             <label htmlFor="fileType" className="block text-lg font-medium">

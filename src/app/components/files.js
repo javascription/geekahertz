@@ -41,7 +41,7 @@ const Files = () => {
   };
 
   return (
-    <div className="relative -top-[10rem] p-4 shadow-md rounded-lg left-6">
+    <div className="relative p-4 shadow-md rounded-lg left-6">
       <h3 className="text-lg font-semibold mb-4">Uploaded Files</h3>
       {loading ? (
         <p className="text-gray-500">Loading files...</p>
