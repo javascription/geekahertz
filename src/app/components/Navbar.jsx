@@ -78,21 +78,21 @@ export default function Navigation({ color = "#fff" }) {
                         </div>
                         <ul className="relative flex gap-12 mo:hidden items-center">
                             <li>
-                                <Link href="/about" className="relative" style={{ color }}>
+                                <Link href="/about" className="relative mo:hidden" style={{ color }}>
                                     About
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/dashboard" className="relative" style={{ color }}>
+                                <Link href="/dashboard" className="relative mo:hidden" style={{ color }}>
                                     Dashboard
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/contact" className="relative" style={{ color }}>
+                                <Link href="/contact" className="relative mo:hidden" style={{ color }}>
                                     Contact
                                 </Link>
                             </li>
-                            <li>{authLink()}</li>
+                            <li className="mo:hidden">{authLink()}</li>
                         </ul>
                         <FontAwesomeIcon
                             icon={faBars}

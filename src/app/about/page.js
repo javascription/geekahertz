@@ -10,7 +10,7 @@ const About1 = () => {
           <div className="flex flex-wrap items-center justify-between -mx-4">
             <div className="w-full px-4">
               <div className="mt-10 lg:mt-0">
-                <h2 className="mb-10 text-3xl font-bold sm:text-[40px]/[48px] text-primary flex justify-center">
+                <h2 className="mb-10 text-3xl font-bold sm:text-[40px]/[48px] text-primary">
                   About Us
                 </h2>
                 <p className="mb-5 text-base text-text p">
@@ -39,11 +39,11 @@ const About1 = () => {
         </div>
       </section>
 
-      <section className="overflow-hidden pt-40 lg:pt-[60px] bg-background">
+      <section className="overflow-hidden mo:pt-5 pt-40 lg:pt-[60px] bg-background">
         <div className="container mx-auto">
           <div className="flex flex-wrap items-center justify-between -mx-4">
             <div className="w-full px-4">
-              <div className="mt-10 lg:mt-0">
+              <div className="mo:mt-5 mt-10 ">
                 <h2 className="mb-5 text-3xl font-bold sm:text-[40px]/[48px] text-primary">
                   Why Choose Us?
                 </h2>
