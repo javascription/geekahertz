@@ -26,7 +26,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={poppins.className} suppressHydrationWarning>
-      <body>
+      <body className="overflow-x-hidden">
         <Provider>
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           {children}

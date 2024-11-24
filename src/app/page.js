@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       <Navbar color="#fff" />
-      <div className="absolute top-0 left-0 w-full h-screen bg-gradient-to-br from-blue-600 to-purple-700 overflow-hidden font-sans z-0">
+      <div className="absolute top-0 left-0 w-full h-screen overflow-hidden font-sans z-0">
         <div className="absolute inset-0">
           <div className="absolute inset-0">
             {floatingDivs.map((style, i) => (
