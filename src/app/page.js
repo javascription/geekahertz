@@ -23,9 +23,7 @@ export default function Home() {
     <>
       <Navbar color="#fff" />
       <div className="absolute top-0 left-0 w-full h-screen bg-gradient-to-br from-blue-600 to-purple-700 overflow-hidden font-sans z-0">
-        {/* Enhanced Background */}
         <div className="absolute inset-0">
-          {/* Animated circles */}
           <div className="absolute inset-0">
             {floatingDivs.map((style, i) => (
               <div
@@ -36,7 +34,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* SVG Pattern */}
           <svg
             className="absolute inset-0 w-full h-full"
             xmlns="http://www.w3.org/2000/svg"
@@ -58,12 +55,9 @@ export default function Home() {
             </defs>
             <rect width="100%" height="100%" fill="url(#grid)" />
           </svg>
-
-          {/* Glassmorphism overlay */}
           <div className="absolute inset-0 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg"></div>
         </div>
 
-        {/* Main content */}
         <main className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 animate-fade-in-down tracking-tight">
             GoDoc

@@ -19,7 +19,7 @@ const Files = () => {
       }
 
       const data = await response.json();
-
+      console.log("Fetched data:", data);
       setFiles(data.files);
     } catch (err) {
     } finally {
@@ -49,7 +49,9 @@ const Files = () => {
             <Link href={`https://utfs.io/a/xprl9riwuu/${file.key}`}>
               {file.name}
             </Link>
-            <button onClick={() => DeleteFiles(file.key)}><FontAwesomeIcon icon={faTrash} /></button>
+            <button onClick={() => DeleteFiles(file.key)}>
+              <FontAwesomeIcon icon={faTrash} />
+            </button>
           </li>
         ))}
       </ul>
