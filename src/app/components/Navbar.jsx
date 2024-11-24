@@ -8,60 +8,60 @@ import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 
 export default function Navigation({ color = "#fff" }) {
-  const navbarRef = useRef(null);
-  const wrapperRef = useRef(null);
-  const barsIconRef = useRef(null);
-  const closeIconRef = useRef(null);
+    const navbarRef = useRef(null);
+    const wrapperRef = useRef(null);
+    const barsIconRef = useRef(null);
+    const closeIconRef = useRef(null);
 
-  const { data: session, status } = useSession();
+    const { data: session, status } = useSession();
 
-  function openWrapper() {
-    wrapperRef.current.style.display = "flex";
-    closeIconRef.current.style.display = "flex";
-    barsIconRef.current.style.display = "none";
-    navbarRef.current.style.zIndex = "3";
-  }
-
-  function closeWrapper() {
-    wrapperRef.current.style.display = "none";
-    closeIconRef.current.style.display = "none";
-    barsIconRef.current.style.display = "flex";
-  }
-
-  function resizeWindow() {
-    const windowWidth = window.innerWidth;
-    wrapperRef.current.style.display = "none";
-    closeIconRef.current.style.display = "none";
-    barsIconRef.current.style.display = windowWidth >= 992 ? "none" : "flex";
-  }
-
-  useEffect(() => {
-    window.addEventListener("resize", resizeWindow);
-    resizeWindow();
-    return () => window.removeEventListener("resize", resizeWindow);
-  }, []);
-
-  const authLink = () => {
-    if (status === "loading") {
-      return <span className="relative mr-[3.6rem]">Loading...</span>;
+    function openWrapper() {
+        wrapperRef.current.style.display = "flex";
+        closeIconRef.current.style.display = "flex";
+        barsIconRef.current.style.display = "none";
+        navbarRef.current.style.zIndex = "3";
     }
-    if (session) {
-      return (
-        <span
-          className="relative mr-[3.6rem] cursor-pointer"
-          style={{ color }}
-          onClick={() => signOut()}
-        >
-          Sign Out
-        </span>
-      );
+
+    function closeWrapper() {
+        wrapperRef.current.style.display = "none";
+        closeIconRef.current.style.display = "none";
+        barsIconRef.current.style.display = "flex";
     }
-    return (
-      <Link href="/login" className="relative mr-[3.6rem]" style={{ color }}>
-        Login
-      </Link>
-    );
-  };
+
+    function resizeWindow() {
+        const windowWidth = window.innerWidth;
+        wrapperRef.current.style.display = "none";
+        closeIconRef.current.style.display = "none";
+        barsIconRef.current.style.display = windowWidth >= 992 ? "none" : "flex";
+    }
+
+    useEffect(() => {
+        window.addEventListener("resize", resizeWindow);
+        resizeWindow(); // Initialize state on mount
+        return () => window.removeEventListener("resize", resizeWindow);
+    }, []);
+
+    const authLink = () => {
+        if (status === "loading") {
+            return <span className="relative mr-[3.6rem]">Loading...</span>;
+        }
+        if (session) {
+            return (
+                <span
+                    className="relative mr-[3.6rem] cursor-pointer"
+                    style={{ color }}
+                    onClick={() => signOut()}
+                >
+                    Sign Out
+                </span>
+            );
+        }
+        return (
+            <Link href="/login" className="relative mr-[3.6rem]" style={{ color }}>
+                Login
+            </Link>
+        );
+    };
 
     return (
         <>
@@ -103,43 +103,39 @@ export default function Navigation({ color = "#fff" }) {
                             style={{ color }}
                         />
 
-            <FontAwesomeIcon
-              icon={faXmark}
-              onClick={closeWrapper}
-              ref={closeIconRef}
-              className="hidden text-[3.3rem] border-4 rounded-2xl mr-12"
-              style={{ color }}
-            />
-          </div>
-        </header>
-        <div
-          ref={wrapperRef}
-          className="hidden flex-col top-[0%] fixed w-[100%] h-screen p-13-percent backdrop-blur-[15px] text-center items-center z-[1]"
-        >
-          <ul className="gap-8 flex flex-col">
-            <li>
-              <Link href="/about" className="text-[2.3rem]" style={{ color }}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/dashboard"
-                className="text-[2.3rem]"
-                style={{ color }}
-              >
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="text-[2.3rem]" style={{ color }}>
-                Contact
-              </Link>
-            </li>
-            <li className="text-[2.3rem]">{authLink()}</li>
-          </ul>
-        </div>
-      </section>
-    </>
-  );
+                        <FontAwesomeIcon
+                            icon={faXmark}
+                            onClick={closeWrapper}
+                            ref={closeIconRef}
+                            className="hidden text-[3.3rem] border-4 rounded-2xl mr-12"
+                            style={{ color }}
+                        />
+                    </div>
+                </header>
+                <div
+                    ref={wrapperRef}
+                    className="hidden flex-col top-[0%] fixed w-[100%] h-screen p-13-percent backdrop-blur-[15px] text-center items-center z-[1]"
+                >
+                    <ul className="gap-8 flex flex-col">
+                        <li>
+                            <Link href="/about" className="text-[2.3rem]" style={{ color }}>
+                                About
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/dashboard" className="text-[2.3rem]" style={{ color }}>
+                                Dashboard
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/contact" className="text-[2.3rem]" style={{ color }}>
+                                Contact
+                            </Link>
+                        </li>
+                        <li className="text-[2.3rem]">{authLink()}</li>
+                    </ul>
+                </div>
+            </section>
+        </>
+    );
 }
