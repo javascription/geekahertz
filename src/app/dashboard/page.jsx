@@ -10,7 +10,6 @@ export default function Upload() {
   const { data: session } = useSession();
   const [selectedEndpoint, setSelectedEndpoint] = useState("imageUploader");
 
-  // File type options for the dropdown
   const fileTypes = [
     { label: "Image", value: "imageUploader" },
     { label: "Video", value: "videoUploader" },
@@ -25,7 +24,6 @@ export default function Upload() {
         <>
           <Navbar />
           <div className="absolute inset-0 flex flex-col items-center justify-center mt-8 space-y-6">
-            {/* Dropdown to select file type */}
             <div>
               <label htmlFor="fileType" className="block text-lg font-medium">
                 Select File Type:
@@ -47,6 +45,14 @@ export default function Upload() {
             <div className="Drop">
               <UploadDropzone
                 endpoint={selectedEndpoint}
+                onBeforeUploadBegin={(files) => {
+                  return files.map(
+                    (file) =>
+                      new File([file], `${session.user.id}-${file.name}`, {
+                        type: file.type,
+                      })
+                  );
+                }}
                 onClientUploadComplete={(res) => {
                   console.log("Files: ", res);
                   alert("Upload Completed");

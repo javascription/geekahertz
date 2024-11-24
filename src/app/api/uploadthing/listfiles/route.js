@@ -1,11 +1,20 @@
 import { UTApi } from "uploadthing/server";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../../../../lib/auth";
 
 const utapi = new UTApi({});
 
 export async function GET(req, res) {
+  const session = await getServerSession(authOptions);
+
+  const userId = session.user.id;
   try {
     const files = await utapi.listFiles();
-    return new Response(JSON.stringify(files), {
+    const files1 = JSON.stringify(files);
+    const filteredFiles = files.files.filter((file) =>
+      file.name.startsWith(userId)
+    );
+    return new Response(JSON.stringify({ files: filteredFiles }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
