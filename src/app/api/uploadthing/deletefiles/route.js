@@ -1,6 +1,6 @@
 import { UTApi } from "uploadthing/server";
 
-export const utapi = new UTApi({});
+const utapi = new UTApi({});
 
 export async function DELETE(req, res) {
   try {
